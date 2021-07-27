@@ -1,0 +1,1 @@
+let reCriminals = /C+/g; // Altere esta linha
