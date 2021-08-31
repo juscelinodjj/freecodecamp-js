@@ -1,15 +1,15 @@
-function steamrollArray(arr) {
-  return arr.reduce((accumulator, element) => {
-    const notIsArray = !Array.isArray(element);
-    if (notIsArray) {
-      return [...accumulator, element];
+function dropElements(arr, func) {
+  const array = [...arr];
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    const pass = func(element);
+    if (!pass) {
+      array.shift();
+      continue;
     }
-    const array = element.map(element => {
-      const notIsArray = !Array.isArray(element);
-      return notIsArray ? element : element[0][0];
-    });
-    return [...accumulator, ...array];
-  }, []);
+    return array;
+  }
+  return array;
 }
 
-steamrollArray([1, [2], [3, [[4]]]]);
+dropElements([1, 2, 3], function(n) {return n < 3; });

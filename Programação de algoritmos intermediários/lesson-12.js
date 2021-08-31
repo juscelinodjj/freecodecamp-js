@@ -1,13 +1,29 @@
-function sumPrimes(num) {
-  return Array(num).fill(null)
-    .map((element, index) => ++index)
-    .filter(number => {
-      const dividers = Array(number).fill(null)
-      .map((element, index) => ++index);
-      const divisibles = dividers.filter(divider => number % divider === 0);
-      const isPrime = divisibles.length === 2;
-      return isPrime;
-    }).reduce((accumulator, number) => accumulator + number, 0);
+function fibonacci (number) {
+  if (!number) {
+    return 'O parâmetro |number| deve ser maior ou igual a 1.'
+  }
+  const array = [];
+  let count = number;
+  while (count) {
+    const lastNumber = array[array.length - 1];
+    const penultimateNumber = array[array.length - 2];
+    const sum = lastNumber + penultimateNumber;
+    if (sum > number) {
+      return array;
+    }
+    !sum ? array.push(1) : array.push(sum);
+    count--;
+  }
+  return array;
 }
 
-sumPrimes(10);
+function sumOddNumbers(array, limit) {
+  return array.filter(element => element % 2 !== 0 && element <= limit)
+    .reduce((accumulator, number) => accumulator + number);
+}
+
+function sumFibs(number) {
+  return sumOddNumbers(fibonacci(number), number);
+}
+
+sumFibs(4);

@@ -1,26 +1,21 @@
-function addTogether() {
-  const args = Array.prototype.slice.call(arguments, 0);
-  const [firstNumber, secondNumber] = args;
-  if (args.length === 2) {
-    const isNumber = typeof firstNumber === 'number'
-      && typeof secondNumber === 'number' ;
-    if (!isNumber) {
-      return undefined;
+function truthCheck(collection, pre) {
+  for (let object of collection) {
+    const match = object.hasOwnProperty(pre);
+    if (!match) {
+      return false;
     }
-    return firstNumber + secondNumber;
-  }
-  const isNumber = typeof firstNumber === 'number';
-  if (!isNumber) {
-    return undefined;
-  }
-  const previousNumber = args[0];
-  return function (number) {
-    const isNumber = typeof number === 'number';
-    if (!isNumber) {
-      return undefined;
+    const isTruthy = object[pre] ? true : false;
+    if (!isTruthy) {
+      return false;
     }
-    return previousNumber + number;
-  };
+  }
+  return true;
 }
 
-addTogether(2,3);
+truthCheck(
+  [
+    {"user": "Tinky-Winky", "sex": "male"},
+    {"user": "Dipsy", "sex": "male"},
+    {"user": "Laa-Laa", "sex": "female"},
+    {"user": "Po", "sex": "female"}
+  ], "sex");
