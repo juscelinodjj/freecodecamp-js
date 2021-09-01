@@ -7,3 +7,7 @@ Enquanto o HTML e o CSS controlam o conteúdo e o estilo de uma página, o JavaS
 Assim que souber os fundamentos abaixo, você aplicará esse conhecimento, criando algoritmos para manipular strings, fatorar números e até mesmo calcular a órbita da Estação Espacial Internacional.
 
 Durante o processo, você também aprenderá dois estilos ou paradigmas de programação importantes: a Programação Orientada a Objetos (POO) e a Programação Funcional (PF).
+
+<img src="https://github.com/juscelinodjj/freecodecamp-js/blob/main/screenshot.png">
+
+[Ver em FreeCodeCamp](https://www.freecodecamp.org/portuguese/certification/juscelinodjj/javascript-algorithms-and-data-structures)
